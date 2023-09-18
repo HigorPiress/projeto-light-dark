@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* mantém o tamanho da caixa, caso seja adicionado padding*/
+}
+
+/* Variável */ 
+:root {
+  --text-color:white; /* Cria o nome desta maneira e acrescenta um valor. ex:white. */
+  --bg-url: url("./assets/bg-mobile.jpg");
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color:  rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url('./assets/moon-stars.svg')
+ 
+}
+
+/* Troca-se os paramêtros as porém para o modo light*/
+.light {
+  --text-color: black;
+  --bg-url: url("./assets/bg-mobile-light.jpg");
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url('./assets/son.svg')
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+body {
+  /* atalho background: color image repeat positon/size*/
+  background: var(--bg-url) no-repeat top center/cover;
+}
+/*Quando espeficia a largura, geralmente não precisa da altura. Largura geralmente segue o contéudo da pagina */
+
+#container {
+  width: 360px;
+  margin: 56px auto 0px; /* 56 em cima, auto nas laterias e 0 embaixo
+  /*margin: auto; Para alinhar uma caixa com tamanho fixo*/
+  padding: 0 24px;
+}
+
+/* profile*/
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/*switch*/
+#switch {
+  position: relative; /* Position absolute vai relativo a esse elemento */
+  width: 64px; /* Esse elemento tem que ter o mesmo tamanho que o span para alinhar */
+
+  margin: 4px auto; /* 4px em cima e em baixo*/
+}
+
+#switch button {
+  height: 32px;
+  width: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  left: 0;
+  top: 50%; /* Para alinha -50% para cima e top 50% para deixar bem no meio*/
+  transform: translateY(-50%); /* translateY para mover para cima ou para baixo */
+  z-index: 1; /* Para mover*/
+}
+
+.light #switch button {
+  right: 0;
+  left: initial; /* Para voltar para sua maneira inicial*/
+}
+
+#switch span { /* span por padrão é display inline */
+  display: block;
+  height: 24px;
+  width: 64px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* links */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* espaço entre os elementos */
+
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px); /* deixa embaçado a cor */
+  -webkit-backdrop-filter: blur(4px); /* Para funcionar em navagadores especificos */
+
+  text-decoration: none; /* esse elemento da por linha em cima, embaixo e no meio */
+  font-weight: 500;
+
+  transition: background 0.2s; /* o tempo de transição, background foi selecionado e 0.5 o tempo */
+}
+
+/* pseudo-selector */
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1px solid var(--text-color);
+}
+
+/* social links */
+#social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+
+  padding: 24px 0;
+  font-size: 24;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
