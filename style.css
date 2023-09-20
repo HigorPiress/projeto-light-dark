@@ -39,7 +39,9 @@ body {
 /*Quando espeficia a largura, geralmente não precisa da altura. Largura geralmente segue o contéudo da pagina */
 
 #container {
-  width: 360px;
+  /*width: 360px;*/
+  width: 100%;
+  max-width: 588px;
   margin: 56px auto 0px; /* 56 em cima, auto nas laterias e 0 embaixo
   /*margin: auto; Para alinhar uma caixa com tamanho fixo*/
   padding: 0 24px;
